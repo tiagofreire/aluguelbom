@@ -1,0 +1,10 @@
+<dl>
+  <%Categoria.all(:order => :descricao).each do |c|%>
+    <dt>
+      <span id="<%=c.id%>"> + </span><a onclick="menu_site('<%= c.id %>')"><%= c.descricao%></a>
+    </dt>
+    <%Subcategoria.all(:conditions => ["categoria_id = ?", c.id]).each do |sc|%>
+    <dd class="<%= c.id%>" id="<%=c.id%>_<%= sc.id%>" ><%= link_to "#{sc.descricao}", :controller => 'anuncios', :action => 'index', :subcategoria_id => sc.id%></dd>
+    <%end%> 
+  <%end%>
+</dl>

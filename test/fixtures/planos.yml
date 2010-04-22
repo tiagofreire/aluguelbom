@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  num_anuncios: 1
+  quant_imagens_anuncio: 
+  expira_anuncio: 1
+  usuario: 
+  valor: 1.5
+  status: 1
+
+two:
+  nome: MyString
+  num_anuncios: 1
+  quant_imagens_anuncio: 
+  expira_anuncio: 1
+  usuario: 
+  valor: 1.5
+  status: 1

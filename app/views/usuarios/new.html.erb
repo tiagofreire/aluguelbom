@@ -1,0 +1,71 @@
+<h1>Cadastro </h1>
+<% @usuario.password = @usuario.password_confirmation = nil %>
+
+<%= error_messages_for :usuario %>
+<% form_for :usuario, :url => usuarios_path do |f| -%>
+<%= f.hidden_field :tipo_usuario_id, :value => 1 %>
+
+<% field_set_tag 'Informações pessoais' do -%>
+<p><%= label_tag 'Nome' %><br/>
+<%= f.text_field :nome %></p>
+<p><%= label_tag 'E-mail' %><br/>
+<%= f.text_field :email %></p>
+
+<p>
+  <label>Estado </label><br />
+  <select id="estado" name="estado_id" class='text_select'>
+<option value=""> --Estado-- </option>
+  <%Estado.all(:select => "id, sigla").each do |e|%>
+  <option value="<%= e.id %>"  <%= e.id == params[:estado_id].to_i ? "selected='selected'" : "" %> ><%=e.sigla%> </option>
+  <%end%>
+</select>
+
+</p>
+<p>
+  <label>cidade <%= image_tag "carregando.gif", :id => "carregando_cidade", :style => "display:none;width:10px;height:10px;"%> </label><br />
+  <span id="cidade">
+  <%if params[:estado_id] and params[:usuario][:cidade_id]%>
+  <select name="usuario[cidade_id]" >
+    <option vallue=''>Escolha uma cidade</option>
+    <%Cidade.all(:select=> "id,nome", :conditions=>["estado_id = ?", params[:estado_id]], :order => "nome").each do |c|%>
+    <option value="<%= c.id%>" <%= c.id == params[:usuario][:cidade_id].to_i ? "selected='selected'" : '' %>>
+      <%=c.nome%>
+    </option>
+    <%end%>
+  </select>
+  <%else%>
+  <select class="text_select"><option>--Escolha um estado--</option></select>
+  <%end%>
+<span>
+
+</p>
+
+<p><%= label_tag 'Endereço' %><br/>
+<%= f.text_field :endereco %></p>
+<p><%= label_tag 'Bairro' %><br/>
+<%= f.text_field :bairro %></p>
+<p><%= label_tag 'Cep' %><br/>
+<%= f.text_field :cep %></p>
+<p><%= label_tag 'Telefone' %><br/>
+<%= f.text_field :telefone %></p>
+<p><%= label_tag 'Celular' %><br/>
+<%= f.text_field :celular %></p>
+<p><%= label_tag 'Fax' %><br/>
+<%= f.text_field :fax %></p>
+<% end -%>
+<% field_set_tag 'Dados de acesso para o sistema' do -%>
+<p><%= label_tag 'Login' %><br/>
+<%= f.text_field :login %></p>
+<p><%= label_tag 'Senha' %><br/>
+<%= f.password_field :password %></p>
+
+<p><%= label_tag 'password_confirmation', 'Confirme a senha' %><br/>
+<%= f.password_field :password_confirmation %></p>
+<%end -%>
+<p><%= submit_tag 'Cadastrar' %></p>
+<% end -%>
+<%= observe_field "estado",:update => "cidade",:url => {:action => "mostrar_cidade"},
+:before => "$('#carregando_cidade').show();",
+:complete => "$('#carregando_cidade').hide();",
+:with => "estado_id", :on => "change"%>
+

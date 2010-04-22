@@ -1,0 +1,173 @@
+html{
+	font-size: 14px;
+	color: #4c4c4c;
+	font-family: Arial, Helvetica, sans-serif;
+}
+body{
+	background-color: #7d98dc;
+	margin: 0;
+	padding: 0
+}
+.clear{
+	clear: both;
+}
+
+#tudo{
+	background: transparent url('../images/borda_topo.png') no-repeat top center;
+	padding: 20px 0px 0px 0px;
+	width: 1024px;
+	margin: 20px auto;
+}
+#tudo #area{
+background: transparent url('../images/borda_conteudo.png') repeat-y top center;
+}
+#tudo #area #topo{
+	background: transparent url('../images/topo.jpg') no-repeat top center;
+	margin: 0px auto;	
+	width: 980px;
+	height: 130px;
+}
+#tudo #topo h1{
+	display: none;
+}
+#tudo #area #menu{
+background: transparent url('../images/menu.gif') repeat-x top;
+	margin: 0px 22px 0px 22px;
+	padding: 6px 4px 0px 4px;	
+	width: 972px;
+	/*border-left: 1px solid #10a1ce;
+	border-right: 1px solid #10a1ce;*/
+	text-align: left;
+	height:24px;
+	list-style-type: none;
+}
+#tudo #area #menu li{
+		height: 100%;
+		margin: 0px 0px 0px 0px;
+		padding: 0px 12px 0px 12px;
+		display: inline;
+		border-right: 1px solid #cccccc;
+}
+#tudo #area #menu li a{
+  color: #4c4c4c;text-decoration:none; font-weight:bold;
+}
+#tudo #area #conteudo{
+
+}
+#tudo #area #conteudo #col_esq {
+	margin: 0px 4px 0px 22px;
+	min-height: 200px;
+	width: 202px;
+	background-color :#0066ff;
+	float: left;
+}
+#tudo #area #conteudo #col_esq dl {
+	color: #e5e5e5;
+	margin: 4px 4px 4px 4px;
+	padding: 0px 0px 0px 0px;
+	font-size: 14px;
+}
+#tudo #area #conteudo #col_esq dl dt {
+	margin: 0px 0px 0px 0px;
+	padding: 6px 4px 8px 4px;
+	font-weight: bold;
+	border-bottom: 1px solid #e5e5e5;
+}
+#tudo #area #conteudo #col_esq dl dd a {
+  color: #e5e5e5;
+  text-decoration:none;
+}
+#tudo #area #conteudo #col_esq dl dt span{
+	font-size: 14px;	
+}
+#tudo #area #conteudo #col_esq dl dd {
+	margin: 0px 0px 0px 0px;
+	padding: 8px 16px 8px 16px;
+	border-bottom: 1px dotted #e5e5e5;
+display:none;
+}
+#tudo #area #conteudo #destaque{
+	height: 60px;
+	width: 772px;
+	border: 1px dashed #ccc;
+	float: left;
+	text-align: center;
+	margin: 0 0 4px 0;
+	padding: 60px 0px 0px 0px;
+}
+#tudo #area #conteudo #principal {
+	margin: 0px;
+	background: transparent url('../images/borda_principal_rodape.png') no-repeat bottom center;	
+	width: 564px;
+	float: left;
+	padding: 0px 0px 14px 0px;
+}
+#tudo #area #conteudo #principal dt span {
+	display:block;
+	color: #999999;
+	font-size: 12px;
+	margin: 0px 10px 0px 10px;
+	padding: 10px 0px 0px 0px;
+	min-height: 20px;
+	border-bottom: 1px solid #cccccc;
+}
+
+#tudo #area #conteudo #principal dd .produtos {
+	background-color: #d2dde4;	
+	width: 268px;
+	height: 98px;
+	margin: 2px;
+	float: left;
+}
+#tudo #area #conteudo #principal dd .produtos img {
+	margin: 8px;
+	border: 2px solid #fff;
+	float: left;
+}
+#tudo #area #conteudo #principal dd .produtos p {
+margin: 8px;
+}
+#tudo #area #conteudo #principal dd .produtos a {
+margin: 8px; 	
+}
+#tudo #area #conteudo #principal dt{
+background: transparent url('../images/borda_principal_topo.png') no-repeat top center;
+	margin: 0px;
+min-height: 30px;
+width: 564px;
+}
+#tudo #area #conteudo #principal dd{
+	background: transparent url('../images/borda_principal_conteudo.png') repeat-y top left;
+	width: 544px;
+	padding: 10px 10px 0px 10px;
+	margin: 0;
+}
+
+#tudo #area #conteudo #col_dir{
+margin: 0;
+	margin: 0px 24px 0px 0px;
+	min-height: 80px;
+	width: 202px;
+	border: 1px dashed #ccc;
+	float: right;
+	text-align: center;
+	padding: 60px 0px 0px 0px;
+}
+#tudo address{
+	text-align: center;
+	font-size: 12px;
+	color: #999999;
+	width: 1024px;
+	height: 36px;
+	margin: 0px 0px 0px 0px;
+	padding: 6px 0px 0px 0px;
+	background: transparent url('../images/borda_rodape.png') no-repeat top center;
+}
+/*Tabs*/
+.menu {background-color:#0066ff;border-bottom:1px solid #d7d7d7; height:23px;width:546px;}
+.menu ul {margin:0px; padding:0px 2px 0px 2px; list-style:none; text-align:left;}
+.menu li {display:inline; line-height:23px;}
+.menu li a {color:#ffffff; text-decoration:none; padding:5px 5px 6px 5px; }
+.menu li a.tabactive {border-left:1px solid #d7d7d7; border-right:1px solid #d7d7d7; color:#000000; background-color:#ffffff; font-weight:bold;  position:relative;}
+#tabcontent1,#tabcontent2,#tabcontent3,#tabcontent4,#anothercontent1,#anothercontent2, #anothercontent3, #anothercontent4,#anothercontent5, #anothercontent6, #contentthree1, #contentthree2, #contentthree3 {border:1px solid #ececec; width:540px; text-align:left;padding:6px 2px 0px 2px; font-size:12px; margin-bottom:5px;}
+

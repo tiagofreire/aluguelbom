@@ -1,0 +1,28 @@
+<div id='produto'>
+
+  <h2><%=@produto.titulo%></h2>
+  <div class="menu">
+    <ul>
+      <li><a href="#" onmouseover="easytabs('1', '1');" onfocus="easytabs('1', '1');" onclick="return false;"  title="" id="tablink1">Descrição</a></li>
+      <li><a href="#" onmouseover="easytabs('1', '2');" onfocus="easytabs('1', '2');" onclick="return false;"  title="" id="tablink2">Fotos </a></li>
+      <li><a href="#" onmouseover="easytabs('1', '3');" onfocus="easytabs('1', '3');" onclick="return false;"  title="" id="tablink3">Detalhes </a></li>
+      <li><a href="#" onmouseover="easytabs('1', '4');" onfocus="easytabs('1', '4');" onclick="return false;"  title="" id="tablink4">Contato </a>
+    </li>
+    </ul>
+  </div>
+  <div id="tabcontent1">
+    <%= @produto.descricao%>
+  </div>
+  <div id="tabcontent2">
+    <%= image_tag 'carro.jpg'%> <br />
+  </div>
+  <div id="tabcontent3">
+    <p>R$ <%= @produto.valor %></p>
+
+  </div>
+  <div id="tabcontent4">
+    Contato
+  </div>
+
+</div>
+

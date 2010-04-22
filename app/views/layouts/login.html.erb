@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+	<head>
+		<title>Aluguel Bom - Entrar</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="charset" content="UTF-8" />
+		<meta http-equiv="content-language" content="pt-br" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Rafael Cruz Rubert" />
+		<meta name="generator" content="RubyOnRails 2.3.5" />
+		<meta name="url" content="www.aluguelbom.com.br" />
+		<meta name="company" content="Iterativa Soluções em T.I." />
+		<link rev="made" href="mailto:rafarubert@iterativa.com.br" />
+		<meta name="revisit-after" content="30" />
+
+		<link href="<%=stylesheet_path 'login'%>" rel="stylesheet" type="text/css" media="screen" />
+		<link href="<%=stylesheet_path 'flash'%>" rel="stylesheet" type="text/css" media="screen" />
+	</head>
+	<body>
+		<%if flash%>
+		<div class='flash'>
+			<%if flash[:error] %>
+			<div class='message error'><p><%= flash[:error]%></p></div>
+			<%end%>
+			<%if flash[:warning]%>
+			<div class='message warning'><p><%= flash[:warning]%></p></div>
+			<%end%>
+			<%if flash[:notice]%>
+			<div class='message notice'><p><%= flash[:notice]%></p></div>
+			<%end%>
+		</div>
+		<%end -%>
+		<h1><span>Auguel Bom</span></h1>
+		<%= yield %>
+	</body>
+</html>

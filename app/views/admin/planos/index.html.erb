@@ -1,0 +1,14 @@
+<h3>Planos</h3>
+<table>
+<% @planos.each do |plano| %>
+  <tr class='<%= cycle '', 'odd'%>'>
+    <td><%=h plano.nome %></td>
+		<td class="action">
+		<%#= link_to "Ver", {:action => 'show', :id => c.id}  , :class=>'view'%> 
+      <%= link_to "Editar", {:action => 'edit', :id => plano.id}, :class => 'edit' %> 
+      <%= link_to "Apagar", {:controller => 'planos',:action => 'destroy', :id => plano.id} , :confirm => 'Realmente deseja apagar?', :class=>'delete' %>
+		</td>
+<% end %>
+</table>
+
+<br />

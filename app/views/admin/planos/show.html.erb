@@ -1,0 +1,28 @@
+<p>
+  <b>Nome:</b>
+  <%=h @plano.nome %>
+</p>
+
+<p>
+  <b>Num anuncios:</b>
+  <%=h @plano.num_anuncios %>
+</p>
+
+<p>
+  <b>Usuario:</b>
+  <%=h @plano.usuario_id %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @plano.valor %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @plano.status %>
+</p>
+
+
+<%= link_to 'Editar', edit_admin_plano_path(@plano) %> |
+<%= link_to 'voltar', admin_planos_path %>

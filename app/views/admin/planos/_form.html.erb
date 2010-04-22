@@ -1,0 +1,30 @@
+<% form_for([:admin, @plano]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :num_anuncios %><br />
+    <%= f.text_field :num_anuncios %>
+  </p>
+ 
+  <p>
+    <%= f.label :usuario_id %><br />
+    <%= f.text_field :usuario_id %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+  <p>
+    <%= f.label :status, "Ativo" %>
+    <%= f.check_box :status %>
+  </p>
+  <p>
+    <%= f.submit 'Salvar' %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar ', admin_planos_path %>

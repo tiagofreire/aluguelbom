@@ -1,0 +1,59 @@
+html{
+	font-size: 14px;
+	color: #4c4c4c;
+	font-family: Arial, Helvetica, sans-serif;
+}
+body{
+	margin: 0;
+	padding: 0
+}
+form {
+	height: 250px;
+	width: 250px;
+	margin: 60px auto;
+	border: 1px solid #ccc;
+	text-align: center;
+	padding: 20px;
+}
+
+label{
+	font-size: 14px;
+	display: block;
+	text-align: left;
+	padding: 10px 10px 10px 10px
+}
+
+input{
+	width: 220px;
+	font-size: 18px;
+	padding: 4px;
+	border: 1px solid #ccc;
+}
+input:focus{
+	background-color: #fffddf;
+	border: 1px solid #ccc;
+}
+.label_checkbox{
+	display: inline;
+	text-align: left;
+	margin: 10px 0px 10px 0px
+}
+.lembrar{
+		text-align:left;
+		margin: 20px 10px 20px 0px
+}
+.botao{
+	width: 120px;
+	height: 40px;
+	border: 1px solid #ccc;
+	color: #4c4c4c;
+	background-color: #fff;
+	
+}
+h1{
+	height: 79px;
+	width: 199px;
+	margin: 40px auto;
+	background:transparent url('../images/logo.png') no-repeat top center;
+}
+h1 span{display: none;}

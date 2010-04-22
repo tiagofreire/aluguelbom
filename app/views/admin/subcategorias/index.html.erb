@@ -1,0 +1,14 @@
+<h3>subcategorias</h3>
+<table>
+<%@subcategorias.each do |c|%>
+	<tr class='<%= cycle '', 'odd'%>'>
+		<td><%= c.descricao %></td>
+		<td class="action">
+		<%#= link_to "Ver", {:action => 'show', :id => c.id}  , :class=>'view'%> 
+	    	<%= link_to "Editar", {:action => 'edit', :id => c.id}, :class => 'edit' %> 
+	    	<%= link_to "Apagar", {:action =>'destroy', :id => c.id , :confirm => 'Realmente deseja apagar?', :method => :delete}, :class=>'delete' %>
+		</td>
+	</tr>
+<%end%>
+</table>
+<br />

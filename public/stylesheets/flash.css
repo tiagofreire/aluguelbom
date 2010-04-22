@@ -1,0 +1,24 @@
+.flash .message {
+  text-align:center;
+
+
+}
+
+.flash .message p {
+  margin:8px;
+}
+.flash .error {
+  border-top: 1px solid #fbb;
+  border-bottom: 1px solid #fbb;
+  background-color: #fdd;
+}
+.flash .warning {
+  border-top: 1px solid #fffaaa;
+  border-bottom: 1px solid #fffaaa;
+  background-color: #ffffcc;
+}
+.flash .notice {
+  border-top: 1px solid #1FDF00;
+  border-bottom: 1px solid #1FDF00;
+  background-color: #BBFFB6;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Aluguel Bom - Administrador</title>
+<!-- CSS -->
+<link href="<%=stylesheet_path 'admin'%>" rel="stylesheet" type="text/css" media="screen" />
+<%= stylesheet_link_tag 'modalbox' %>
+<!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="<%= stylesheet_path 'ie6'%>" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="<%= stylesheet_path 'ie7'%>" /><![endif]-->
+<!-- JavaScripts-->
+<%= javascript_include_tag :all, :cache => true %>
+
+<%#= javascript_include_tag 'jquery.js'%>
+<%#= javascript_include_tag 'jNice.js'%>
+</head>
+<body>
+			<%if flash%>
+			<div class='flash'>
+				<%if flash[:error] %>
+				<div class='message error'><p><%= flash.now[:error]%></p></div>
+				<%end%>
+				<%if flash[:warning]%>
+				<div class='message warning'><p><%= flash.now[:warning]%></p></div>
+				<%end%>
+				<%if flash[:notice]%>
+				<div class='message notice'><p><%= flash.now[:notice]%></p></div>
+				<%end%>
+			</div>
+			<%end -%>
+	<div id="wrapper">
+    	<!-- h1 tag stays for the logo, you can use the a tag for linking the index page -->
+    	<h1><a href="#"><span>Aluguel bom</span></a></h1>
+        
+        <%= render :partial => 'layouts/admin/menu_controller' %>
+        <div id="containerHolder">
+		<div id="container">
+        	
+        	<%= render :partial => 'layouts/admin/menu_action' %>
+                
+                <!-- h2 stays for breadcrumbs -->
+                <h2>Olá, <span><%= @current_usuario.nome%></span></h2>
+                
+                <div id="main">
+
+			<%= yield %>
+                </div>
+                
+                <div class="clear"></div>
+            </div>
+        </div>	
+        
+        <p id="footer"><a href="http://www.iterativa.com.br">Iterativa Soluções em T.I.</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+	<head>
+		<title>Aluguel Bom</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="charset" content="UTF-8" />
+		<meta http-equiv="content-language" content="pt-br" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Rafael Cruz Rubert" />
+		<meta name="generator" content="RubyOnRails 2.3.5" />
+		<meta name="url" content="www.aluguelbom.com.br" />
+		<meta name="company" content="Iterativa Soluções em T.I." />
+		<link rev="made" href="mailto:rafarubert@iterativa.com.br" />
+		<meta name="revisit-after" content="30" />
+		<%= javascript_include_tag :all, :cache => true %>
+
+		<link href="css/estilo.css" rel="stylesheet" type="text/css" media="all" />
+  		<%= stylesheet_link_tag 'principal' %>
+  		<%= stylesheet_link_tag 'flash' %>
+	</head>
+	<body>
+			<div class='flash'>
+				<%if flash[:error] %>
+				<div class='message error'><p><%= flash[:error]%></p></div>
+				<%end%>
+				<%if flash[:warning]%>
+				<div class='message warning'><p><%= flash[:warning]%></p></div>
+				<%end%>
+				<%if flash[:notice]%>
+				<div class='message notice'><p><%= flash[:notice]%></p></div>
+				<%end%>
+			</div>
+		<div id="tudo">
+			<div id="area">
+				<div id="topo">
+					<h1>Aluguel Bom</h1>
+				</div>
+				<ul id="menu">
+					<li><a href="/"> Home</a></li>
+					<li><a href="/cadastro"> Cadastre-se</a></li>
+					<li><a href="/entrar"> Acesso</a></li>
+				</ul>
+				<div id="conteudo">
+					<div id="col_esq">
+          <%= render :partial => "layouts/menu" %>
+					</div>
+					<div id="destaque">
+						Publicidade
+					</div>			
+					<dl id='principal'>
+						<dt><span>Home ></span></dt>
+							<dd>
+								<%= yield %>
+                <div id='clear'>&nbsp;</div>
+							</dd>
+					</dl>
+					<div id="col_dir">
+						Publicidade
+					</div>
+					<div class='clear'></div>
+				</div>
+			</div>
+				<address>
+					Alugel Bom &copy; 2010 - Todos os direitos reservados
+				</address>
+		</div>
+	</body>
+</html>

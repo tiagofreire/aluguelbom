@@ -1,0 +1,10 @@
+<% form_for([:admin ,@categoria]) do |f| %>
+<fieldset>
+	<%= f.error_messages %>
+	<label>Descrição</label>
+	<%=f.text_field :descricao, :class => 'text-long'%>
+</fieldset>
+<%= f.submit 'Salvar' %>
+ou
+<%= link_to 'Cancelar', admin_categorias_path %>
+<% end %>

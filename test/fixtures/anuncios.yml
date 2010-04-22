@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  titulo: MyString
+  descricao: MyText
+  subcategoria: 
+  cidade: 
+  plano: 
+  valor: 1.5
+  video: MyString
+  tags: MyString
+  status: 1
+
+two:
+  titulo: MyString
+  descricao: MyText
+  subcategoria: 
+  cidade: 
+  plano: 
+  valor: 1.5
+  video: MyString
+  tags: MyString
+  status: 1

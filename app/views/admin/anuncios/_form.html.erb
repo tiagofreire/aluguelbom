@@ -1,0 +1,126 @@
+        <%
+#TODO: Criar um helper para isto
+                estado_id =
+                if params[:estado_id]
+                        params[:estado_id].to_i
+                elsif @anuncio.cidade and @anuncio.cidade.estado_id.to_i
+                        @anuncio.cidade.estado_id.to_i
+                else
+                        6
+                end
+                cidade_id =
+                if params[:anuncio] and params[:anuncio][:cidade_id]
+                         params[:anuncio][:cidade_id].to_i
+                elsif  @anuncio.cidade_id
+                        @anuncio.cidade_id.to_i
+                else
+                        678
+                end
+        %>
+        <%
+                categoria_id =
+                if params[:categoria_id]
+                        params[:categoria_id].to_i
+                elsif @anuncio.subcategoria and @anuncio.subcategoria.categoria_id
+                        @anuncio.subcategoria.categoria_id.to_i
+                else
+                  nil
+                end
+                subcategoria_id =
+                if params[:anuncio] and params[:anuncio][:subcategoria_id]
+                         params[:anuncio][:subcategoria_id].to_i
+                elsif  @anuncio.subcategoria_id
+                        @anuncio.subcategoria_id.to_i
+                else
+                  nil
+                end
+        %>
+
+<% form_for([:admin ,@anuncio]) do |f| %>
+<fieldset>
+	<%= f.error_messages %>
+
+<p>
+  <label>Categoria</label>
+  <select id="categoria" name="categoria_id">
+<option value=""> --Categoria-- </option>
+  <%Categoria.all(:select => "id, descricao").each do |c|%>
+  <option value="<%= c.id %>"  <%= c.id == categoria_id ? "selected='selected'" : "" %> ><%=c.descricao%> </option>
+  <%end%>
+</select>
+
+</p>
+<p>
+  <label>Subcategoria <%= image_tag "carregando.gif", :id => "carregando_subcategoria", :style => "display:none;width:10px;height:10px;"%> </label>
+  <span id="subcategoria">
+  <%if categoria_id and subcategoria_id %>
+  <select name="anuncio[subcategoria_id]" >
+    <option vallue=''>Escolha uma categoria</option>
+    <%Subcategoria.all(:select=> "id,descricao", :conditions=>["categoria_id = ?", categoria_id], :order => "descricao").each do |sb|%>
+    <option value="<%= sb.id%>" <%= sb.id == subcategoria_id ? "selected='selected'" : '' %>>
+      <%=sb.descricao%>
+    </option>
+    <%end%>
+  </select>
+  <%else%>
+  <select class="text_select"><option>--Escolha uma categoria--</option></select>
+  <%end%>
+<span>
+
+</p>
+<p>
+  <label>Estado</label>
+  <select id="estado" name="estado_id" class='text_select'>
+<option value=""> --Estado-- </option>
+  <%Estado.all(:select => "id, sigla").each do |e|%>
+  <option value="<%= e.id %>"  <%= e.id == estado_id ? "selected='selected'" : "" %> ><%=e.sigla%> </option>
+  <%end%>
+</select>
+
+</p>
+<p>
+  <label>cidade <%= image_tag "carregando.gif", :id => "carregando_cidade", :style => "display:none;width:10px;height:10px;"%> </label>
+  <span id="cidade">
+  <%if estado_id and cidade_id %>
+  <select name="anuncio[cidade_id]" >
+    <option vallue=''>Escolha uma cidade</option>
+    <%Cidade.all(:select=> "id,nome", :conditions=>["estado_id = ?", estado_id], :order => "nome").each do |c|%>
+    <option value="<%= c.id%>" <%= c.id == cidade_id.to_i ? "selected='selected'" : '' %>>
+      <%=c.nome%>
+    </option>
+    <%end%>
+  </select>
+  <%else%>
+  <select class="text_select"><option>--Escolha um estado--</option></select>
+  <%end%>
+<span>
+
+</p>
+<p>
+	<label>Titulo</label>
+	<%=f.text_field :titulo, :class => 'text-long'%>
+</p>
+<p>
+	<label>Descrição</label>
+	<%=f.text_area :descricao, :class => ''%>
+</p>
+<p>
+	<label>YouTbube(ID do video)</label>
+	<%=f.text_field :video, :class => 'text-long'%>
+</p>
+<p>
+	<label>Tags (separadas apenas por espaços)</label>
+	<%=f.text_field :tags, :class => 'text-long'%>
+</p>
+<p>
+	<label>Valor R$</label>
+	<%=f.text_field :valor, :class => 'text-small'%>
+</p>
+
+</fieldset>
+<%= f.submit 'Salvar', :class => 'button-submit' %>
+ou
+<%= link_to 'Cancelar', admin_anuncios_path %>
+<% end %>
+<%= observe_field "estado",:update => "cidade",:url => {:action => "mostrar_cidade"},:before => "Element.show('carregando_cidade');",:complete => "Element.hide('carregando_cidade');",:with => "estado_id", :on => "change"%>
+<%= observe_field "categoria",:update => "subcategoria",:url => {:action => "mostrar_subcategoria"},:before => "Element.show('carregando_subcategoria');",:complete => "Element.hide('carregando_subcategoria')",:with => "categoria_id", :on => "change"%>

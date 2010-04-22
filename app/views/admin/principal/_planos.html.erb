@@ -1,0 +1,26 @@
+<%if UsuarioPlano.count(:conditions => ["usuario_id = ?", @current_usuario.id]) < 1%>
+<%# form_tag "admin/principal/add_plano" do -%>
+<% form_for([:admin ,@usuario_plano], :url =>{:action => "add_plano"}) do |f| %>
+<% field_set_tag 'Plano' do -%>
+  <%= f.error_messages %>
+<%= select("usuario_plano", "plano_id",planos_for_select ,
+  {:include_blank => true },
+  :onchange => remote_function(:update => "sobre_plano",
+  :method => "get",
+  :with => "'plano_id='+this.value",
+  :url => { :controller => "admin/principal", :action => "mostra_detalhe_plano"}))
+%>
+<span id='sobre_plano'>[Escolha um plano]</span>
+<%= f.hidden_field :usuario_id , :value => "#{@current_usuario.id}"%>
+    <br />
+    <br />
+    <%= submit_tag "Escolher plano"%>
+
+<% end -%>
+<% end -%>
+<%else%>
+    <%= @usuario_plano.plano.nome %>
+     <%= link_to_modal "[Detalhes do plano]", "detalhes_plano", @usuario_plano.plano_id, "Sobre o plano" %>
+<%end%>
+
+
