@@ -1,7 +1,8 @@
 <% @anuncios.each do |a|%>
 <div class="produtos">
   <%= image_tag 'carro.jpg'%>
-  <p><%= truncate('a', 60) %></p>
+  <p><b><%= truncate(a.titulo, 20) %></b></p>
+  <p><%= truncate(a.descricao, 38) %></p>
   <%= link_to 'Confira ... ', :controller => 'anuncios',:action => 'produto', :anuncio_id => a.id %>
 </div>
 <%end%>

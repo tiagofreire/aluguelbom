@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :subcategorias
     admin.resources :anuncios
     admin.resources :usuario_planos
+    admin.resources :planos
     admin.resources :usuario_anuncios
     admin.root :controller => "principal"
   end

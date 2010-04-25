@@ -5,7 +5,7 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
-
+require 'smtp_tls'
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -22,6 +22,7 @@ Rails::Initializer.run do |config|
   config.gem "rack", :version => '1.0.1'
   config.gem "calendar_date_select", :version => '~> 1.15',  :lib => 'calendar_date_select',:source => 'http://gems.github.com'
   config.gem 'mislav-will_paginate', :version => '~> 2.3.8', :lib => 'will_paginate',:source => 'http://gems.github.com'
+  config.gem 'tiny_mce'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -43,19 +44,16 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   config.i18n.default_locale = "pt-BR"
-
+  #config e-mail 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :authentication => :plain,
+    :user_name => "contato@rafarubert.net",
+    :password => "contato*site"
+  }
 end
 #WillPaginate::ViewHelpers.pagination_options[:prev_label]=I18n.t("pagination.prev")
 #WillPaginate::ViewHelpers.pagination_options[:next_label]=I18n.t("pagination.next")
-=begin
-ActionMailer::Base.default_content_type = "text/html"
-#ActionMailer::Base.delivery_method = :sendmail
-ActionMailer::Base.smtp_settings = {
-  :address => 'mail.dominio.com.br',
-  :port => '26',
-  :authentication => :login,
-  #:domain => "dominio",
-  :user_name => 'usuario@dominio.com.br',
-  :password => 'senha_email'
-} 
-=end
+

@@ -1,7 +1,6 @@
 require 'digest/sha1'
 class Usuario < ActiveRecord::Base
   has_many :usuario_planos
-  has_many :usuario_anuncios
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken

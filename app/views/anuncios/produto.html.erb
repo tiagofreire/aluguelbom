@@ -17,8 +17,9 @@
     <%= image_tag 'carro.jpg'%> <br />
   </div>
   <div id="tabcontent3">
+    <% if @produto.valor %>
     <p>R$ <%= @produto.valor %></p>
-
+    <% end %>
   </div>
   <div id="tabcontent4">
     Contato

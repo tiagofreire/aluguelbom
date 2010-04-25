@@ -28,8 +28,8 @@ class Admin::PlanosController < Admin::AdminController
     @plano = Plano.new(params[:plano])
     respond_to do |format|
       if @plano.save
-        flash[:notice] = 'Plano was successfully created.'
-        format.html { redirect_to(@plano) }
+        flash[:notice] = 'Plano cadastrado com sucesso.'
+        format.html { redirect_to(admin_planos_url) }
       else
         format.html { render :action => "new" }
       end
@@ -39,8 +39,8 @@ class Admin::PlanosController < Admin::AdminController
     @plano = Plano.find(params[:id])
     respond_to do |format|
       if @plano.update_attributes(params[:plano])
-        flash[:notice] = 'Plano was successfully updated.'
-        format.html { redirect_to(@plano) }
+        flash[:notice] = 'Plano alterado com sucesso.'
+        format.html { redirect_to(admin_planos_url) }
       else
         format.html { render :action => "edit" }
       end
@@ -50,7 +50,7 @@ class Admin::PlanosController < Admin::AdminController
     @plano = Plano.find(params[:id])
     @plano.destroy
     respond_to do |format|
-      format.html { redirect_to(planos_url) }
+      format.html { redirect_to(admin_planos_url) }
     end
   end
 end

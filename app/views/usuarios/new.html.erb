@@ -22,7 +22,7 @@
 
 </p>
 <p>
-  <label>cidade <%= image_tag "carregando.gif", :id => "carregando_cidade", :style => "display:none;width:10px;height:10px;"%> </label><br />
+  <label>Cidade <%= image_tag "carregando.gif", :id => "carregando_cidade", :style => "display:none;width:10px;height:10px;"%> </label><br />
   <span id="cidade">
   <%if params[:estado_id] and params[:usuario][:cidade_id]%>
   <select name="usuario[cidade_id]" >
@@ -65,7 +65,7 @@
 <p><%= submit_tag 'Cadastrar' %></p>
 <% end -%>
 <%= observe_field "estado",:update => "cidade",:url => {:action => "mostrar_cidade"},
-:before => "$('#carregando_cidade').show();",
-:complete => "$('#carregando_cidade').hide();",
+:before => "Element.show('carregando_cidade');",
+:complete => "Element.hide('carregando_cidade');",
 :with => "estado_id", :on => "change"%>
 

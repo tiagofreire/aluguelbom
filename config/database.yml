@@ -36,13 +36,12 @@ test:
   username: root
   password:
   socket: /var/run/mysqld/mysqld.sock
-
 production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: aluguelbom_production
+  database: rafarubert13
   pool: 5
-  username: root
-  password: 
-  socket: /var/run/mysqld/mysqld.sock
+  username: rafarubert13
+  password: aluguel*bom
+  host: 187.45.196.152

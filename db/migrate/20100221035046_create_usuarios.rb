@@ -29,12 +29,11 @@ class CreateUsuarios < ActiveRecord::Migration
          say_with_time "Criando conta do administrador" do
                 Usuario.new do |a|
                         a.login = 'admin'
-                        a.email = 'admin@admin.com.br'
+                        a.email = 'rafarubert@yahoo.com.br'
                         a.nome = 'Administrador'
                         a.tipo_usuario_id = 0
                         a.crypted_password = '7f9dd922ab8a9c411c3315df869f65f2aadadef7'
                         a.salt = '51514aa306c2501834ac942f97cf8cfb0d160097'
-			a.activation_code = '9b4628d93cc0c39d6ba1c04a6eaa9465b0d2a60f'
 			a.activated_at = Time.now
                         a.save
                 end

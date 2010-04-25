@@ -56,7 +56,7 @@ background: transparent url('../images/menu.gif') repeat-x top;
 }
 #tudo #area #conteudo #col_esq {
 	margin: 0px 4px 0px 22px;
-	min-height: 200px;
+	min-height: 400px;
 	width: 202px;
 	background-color :#0066ff;
 	float: left;
@@ -115,7 +115,7 @@ display:none;
 #tudo #area #conteudo #principal dd .produtos {
 	background-color: #d2dde4;	
 	width: 268px;
-	height: 98px;
+	min-height: 98px;
 	margin: 2px;
 	float: left;
 }
@@ -141,6 +141,7 @@ width: 564px;
 	width: 544px;
 	padding: 10px 10px 0px 10px;
 	margin: 0;
+	float:left;;
 }
 
 #tudo #area #conteudo #col_dir{
@@ -170,4 +171,34 @@ margin: 0;
 .menu li a {color:#ffffff; text-decoration:none; padding:5px 5px 6px 5px; }
 .menu li a.tabactive {border-left:1px solid #d7d7d7; border-right:1px solid #d7d7d7; color:#000000; background-color:#ffffff; font-weight:bold;  position:relative;}
 #tabcontent1,#tabcontent2,#tabcontent3,#tabcontent4,#anothercontent1,#anothercontent2, #anothercontent3, #anothercontent4,#anothercontent5, #anothercontent6, #contentthree1, #contentthree2, #contentthree3 {border:1px solid #ececec; width:540px; text-align:left;padding:6px 2px 0px 2px; font-size:12px; margin-bottom:5px;}
+/* tratamento de erros do rails*/
+.errorExplanation{
+  margin: 10px 0px 10px 0px;
+  padding: 10px 10px 10px 10px;
+  width: 520px;
+  background-color: #eee;
+  border: 2px solid #ccc;
+}
+.errorExplanation h2{
+  border-bottom: 1px solid #ccc;
+  width: 516px;
+  margin: 4px 4px 4px 0px;
+  padding: 4px 4px 4px 0px;
+  color: #c66653;
+font-size:18px;
+}
+.errorExplanation p{
+  color: #c66653;
+font-size:14px;
+  font-weight: bold;
 
+  padding: 10px;
+}
+.errorExplanation li{
+  color: #c66653;
+  padding: 4px 10px 4px 10px;
+
+  list-style-type: circle;
+list-style-position: inside;
+font-size:12px;
+}

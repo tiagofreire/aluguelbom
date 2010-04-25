@@ -1,12 +1,14 @@
 <h3>Meus anuncios</h3>
-<%@anuncios.each do |a|%>
-  <div class="anuncio"  id='anuncio_<%=a.id%>' onmouseover  ="$('comando_<%=a.id%>').show();" onmouseout="$('comando_<%=a.id%>').hide();" >
-    <h3><%= a.titulo%></h3>
-    <p><b>Descrição:</b> <br /><%= truncate(a.descricao, 60)%></p>
-    <br />
-    <p><b>Preço:</b> <%= a.valor %> </p>
-    <p class='comandos' id='comando_<%=a.id %>' style='display:none' >
-    <a href="/admin/anuncios/edit/<%=a.id%>">Editar</a> | Ativo
-    </p>
-  </div>
+<% if @anuncios %>
+  <%@anuncios.each do |a|%>
+    <div class="anuncio"  id='anuncio_<%=a.id%>' onmouseover  ="$('comando_<%=a.id%>').show();" onmouseout="$('comando_<%=a.id%>').hide();" >
+      <h3><%= truncate(a.titulo, 20)%></h3>
+      <p><b>Descrição:</b> <br /><%= truncate(a.descricao, 40)%></p>
+      <br />
+      <p><b>Preço:</b> <%= a.valor %> </p>
+      <p class='comandos' id='comando_<%=a.id %>' style='display:none' >
+        <a href="/admin/anuncios/edit/<%=a.id%>">Editar</a> | Ativo
+      </p>
+    </div>
+<%end%>
 <%end%>

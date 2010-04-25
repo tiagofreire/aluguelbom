@@ -28,7 +28,7 @@ class UsuariosController < ApplicationController
     when (!params[:activation_code].blank?) && usuario && !usuario.active?
       usuario.activate!
       flash[:notice] = "Cadastro completo."
-      redirect_to '/login'
+      redirect_to '/'
     when params[:activation_code].blank?
       flash[:error] = "Codigo de ativação vazio, por favor verifique seu email e utilize o link correto."
       redirect_back_or_default('/')

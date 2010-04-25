@@ -160,12 +160,12 @@ h3 {
 	margin: 20px 0 10px;
 }
 
-#main table {
+#main #tb table {
 	border-top: 1px solid #ddd;
 	width: 700px;
 }
 
-#main table tr td {
+#main #tb table tr td {
 	background: #f6f6f6;
 	padding: 0px 20px;
 	height: 29px;
@@ -173,23 +173,23 @@ h3 {
 	border-bottom: 1px solid #ddd;
 }
 
-#main table tr.odd td {
+#main #tb table tr.odd td {
 	background: #fbfbfb;
 }
 
-#main table tr:hover td { background: #fdfcf6; }
+#main #tb table tr:hover td { background: #fdfcf6; }
 
-#main table .action {
+#main #tb table .action {
 	text-align: right;
 	padding: 0 20px 0 10px;
 }
 
-#main table tr .action a { margin: 0 0 0 10px; text-decoration: none; color: #9b9b9b; }
-#main table tr:hover .action .edit { color: #c5a059; }
-#main table tr:hover .action .delete { color: #a02b2b; }
-#main table tr:hover .action .view { color: #55a34a; }
+#main #tb table tr .action a { margin: 0 0 0 10px; text-decoration: none; color: #9b9b9b; }
+#main #tb table tr:hover .action .edit { color: #c5a059; }
+#main #tb table tr:hover .action .delete { color: #a02b2b; }
+#main #tb table tr:hover .action .view { color: #55a34a; }
 
-#main table tr:hover .action a:hover { text-decoration: underline; }
+#main #tb table tr:hover .action a:hover { text-decoration: underline; }
 
 #main fieldset {
 	border: 1px solid #ddd;

@@ -2,10 +2,10 @@ class Admin::AnunciosController < Admin::AdminController
   before_filter do |c|
     c.send(:check_authentication, 3)
   end
-
+  uses_tiny_mce
   def index
     if current_usuario.tipo_usuario_id == 1
-      @usuario_anuncios = UsuarioAnuncio.find_by_usuario_id(current_usuario.id)
+      @anuncios = Anuncio.all(:conditions => ["usuario_id = ?",current_usuario.id])
     else
       @anuncios = Anuncio.all
     end

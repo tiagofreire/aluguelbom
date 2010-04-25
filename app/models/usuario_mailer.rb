@@ -2,15 +2,20 @@ class UsuarioMailer < ActionMailer::Base
   def signup_notification(usuario)
     setup_email(usuario)
     @subject    += 'Ativação de conta'
-  
-    @body[:url]  = "http://#{request.env	['HTTP_HOST']}/activate/#{usuario.activation_code}"
+    #TODO: Ao colocar em produção descomentar linha e comentar abaixo 
+    #@body[:url]  = "http://#{request.env['HTTP_HOST']}/activate/#{usuario.activation_code}"
+    #@body[:url]  = "http://localhost:3000/ativar/#{usuario.activation_code}"
+    @body[:url]  = "http://aluguelbom.iterativa.com.br"
   
   end
   
   def activation(usuario)
     setup_email(usuario)
     @subject    += 'Conta ativada com sucesso'
-    @body[:url]  = "http://#{request.env['HTTP_HOST']}"
+    #TODO: Ao colocar em produção descomentar linha e comentar abaixo 
+    #@body[:url]  = "http://#{request.env['HTTP_HOST']}"
+    #@body[:url]  = "http://localhost:3000"
+    @body[:url]  = "http://aluguelbom.iterativa.com.br"
   end
   
   protected
