@@ -1,11 +1,17 @@
+ssh_options[:paranoid] = false 
 set :application, "natalsemfome.org"
 set :repository,  "git@github.com:rafarubert/aluguelbom.git"
+set :scm_verbose, true
 set :user, "railsapps"
+set :domain, "68.233.11.26"
+set :remote, :user
 set :use_sudo, false
 set :deploy_to, "/home/#{user}/#{application}"
-set :scm, :git       
-set :domain, "68.233.11.26"
-server application, :app, :web, :db, :primary => true
+set :scm, :git   
+role :web, domain
+role :app, domain
+role :db, domain
+    
 
 namespace :deploy do
   task :start do ; end
@@ -14,7 +20,6 @@ namespace :deploy do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
-
 =begin
 #-- github
 #ssh_options[:port] = 22223
