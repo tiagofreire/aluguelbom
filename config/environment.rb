@@ -22,7 +22,7 @@ Rails::Initializer.run do |config|
   config.gem "rack", :version => '1.0.1'
   config.gem "calendar_date_select", :version => '~> 1.15',  :lib => 'calendar_date_select',:source => 'http://gems.github.com'
   config.gem 'mislav-will_paginate', :version => '~> 2.3.8', :lib => 'will_paginate',:source => 'http://gems.github.com'
-  config.gem 'tiny_mce'
+  config.gem 'tiny_mce', :lib => 'tiny_mce',:source => 'http://gems.github.com'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

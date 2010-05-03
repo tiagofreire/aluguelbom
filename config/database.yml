@@ -40,8 +40,8 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: rafarubert13
+  database: aluguelbom_production
   pool: 5
-  username: rafarubert13
-  password: aluguel*bom
-  host: 187.45.196.152
+  username: root
+  password:
+  socket: /var/run/mysqld/mysqld.sock

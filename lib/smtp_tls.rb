@@ -5,8 +5,9 @@ Net::SMTP.class_eval do
   private
   def do_start(helodomain, user, secret, authtype)
     raise IOError, 'SMTP session already started' if @started
+    #TODO: Não funciona em locaweb, ver o porque ou trocar o servidor
     #check_auth_args user, secret, authtype if user or secret
-    check_auth_args user, secret
+    #check_auth_args user, secret
 
     sock = timeout(@open_timeout) { TCPSocket.open(@address, @port) }
     @socket = Net::InternetMessageIO.new(sock)
