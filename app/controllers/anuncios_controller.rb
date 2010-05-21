@@ -5,4 +5,7 @@ class AnunciosController < ApplicationController
   def produto
     @produto = Anuncio.find(params[:anuncio_id])
   end
+  def usuario
+    Usuario.all(:conditions => ["login = ?", params[:usuario] ])
+  end
 end

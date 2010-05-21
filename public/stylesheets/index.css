@@ -1,0 +1,29 @@
+#tudo #area #conteudo #principal {
+	margin: 0px;
+	background: transparent url('../images/borda_principal_rodape.png') no-repeat bottom center;
+	width: 564px;
+	float: left;
+	padding: 0px 0px 14px 0px;
+}
+#tudo #area #conteudo #principal dt{
+  background: transparent url('../images/borda_principal_topo.png') no-repeat top center; 
+	margin: 0px;
+  min-height: 30px;
+  width: 564px;
+}
+#tudo #area #conteudo #principal dd{
+	background: transparent url('../images/borda_principal_conteudo.png') repeat-y top left;
+	width: 544px;
+	padding: 10px 10px 0px 10px;
+	margin: 0;
+	float:left;;
+}
+#tudo #area #conteudo #principal dt span {
+	display:block;
+	color: #999999;
+	font-size: 12px;
+	margin: 0px 10px 0px 10px;
+	padding: 10px 0px 0px 0px;
+	min-height: 20px;
+	border-bottom: 1px solid #cccccc;
+}

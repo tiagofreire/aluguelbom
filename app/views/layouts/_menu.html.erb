@@ -1,3 +1,6 @@
+<% form_for 'index' do |f| -%>
+  <%= text_field 'field', '', :size => 16 %><%= f.submit 'Ok' %>
+<% end -%>
 <dl>
   <%Categoria.all(:order => :descricao).each do |c|%>
     <dt>

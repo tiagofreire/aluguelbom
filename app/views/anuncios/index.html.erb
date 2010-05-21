@@ -1,8 +1,23 @@
+<div class='anuncio_table'>
+<table>
+ <thead>
+  <tr>
+    <th>Nome</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
 <% @anuncios.each do |a|%>
-<div class="produtos">
-  <%= image_tag 'carro.jpg'%>
-  <p><b><%= truncate(a.titulo, 20) %></b></p>
-  <p><%= truncate(a.descricao, 38) %></p>
-  <%= link_to 'Confira ... ', :controller => 'anuncios',:action => 'produto', :anuncio_id => a.id %>
-</div>
+  <tr class="<%= cycle '','odd'%>">
+    <td>
+      <b><%= truncate(a.titulo, 20) %></b>
+    </td>
+    <td><%= truncate(a.descricao, 38) %></td>
+    <td><%= a.valor %></td>
+    <td> <%= link_to 'Confira ... ', :controller => 'anuncios',:action => 'produto', :anuncio_id => a.id %></td>     
+  </tr>
 <%end%>
+</tbody>
+</table>

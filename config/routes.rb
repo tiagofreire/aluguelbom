@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => "principal"
   end
 
+  map.purchase ':usuario', :controller => 'anuncios', :action => 'usuario'
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

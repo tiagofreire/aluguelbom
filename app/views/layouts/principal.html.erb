@@ -18,6 +18,7 @@
 
 		<link href="css/estilo.css" rel="stylesheet" type="text/css" media="all" />
   		<%= stylesheet_link_tag 'principal' %>
+  		<%= stylesheet_link_tag 'index' %>
   		<%= stylesheet_link_tag 'flash' %>
 	</head>
 	<body>
@@ -36,13 +37,8 @@
 			<div id="area">
 				<div id="topo">
 					<h1>Aluguel Bom</h1>
-				</div>
-				<ul id="menu">
-					<li><a href="/"> Home</a></li>
-					<li><a href="/cadastro"> Cadastre-se</a></li>
-					<li><a href="/entrar"> Acesso</a></li>
-					<li><a href="#"> Contato</a></li>
-				</ul>
+        </div>
+        <%= render :partial => "layouts/navegacao" %>
 				<div id="conteudo">
 					<div id="col_esq">
           <%= render :partial => "layouts/menu" %>

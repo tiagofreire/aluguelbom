@@ -5,7 +5,7 @@ class UsuarioMailer < ActionMailer::Base
     #TODO: Ao colocar em produção descomentar linha e comentar abaixo 
     #@body[:url]  = "http://#{request.env['HTTP_HOST']}/activate/#{usuario.activation_code}"
     #@body[:url]  = "http://localhost:3000/ativar/#{usuario.activation_code}"
-    @body[:url]  = "http://www.natalsemfome.org/ativar/#{usuario.activation_code}"
+    @body[:url]  = "http://localhost:3000/ativar/#{usuario.activation_code}"
   
   end
   
@@ -15,7 +15,7 @@ class UsuarioMailer < ActionMailer::Base
     #TODO: Ao colocar em produção descomentar linha e comentar abaixo 
     #@body[:url]  = "http://#{request.env['HTTP_HOST']}"
     #@body[:url]  = "http://localhost:3000"
-    @body[:url]  = "http://www.natalsemfome.org"
+    @body[:url]  = "http://localhost:3000"
   end
   
   protected
