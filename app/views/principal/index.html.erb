@@ -1,0 +1,56 @@
+<% form_remote_tag :url => { :action => "busca"}, :update => "div_busca" do %>
+  <% field_set_tag "Pesquisa" do %>
+  <p>
+    <label>Estado </label><br />
+    <select id="estado" name="estado_id" class='text_select'>
+      <option value=""> --Estado-- </option>
+      <%Estado.all(:select => "id, sigla").each do |e|%>
+      <option value="<%= e.id %>"  <%= e.id == params[:estado_id].to_i ? "selected='selected'" : "" %> ><%=e.sigla%> </option>
+      <%end%>
+    </select>
+  </p>
+  <p>
+    <label>Cidade <%= image_tag "carregando.gif", :id => "carregando_cidade", :style => "display:none;width:10px;height:10px;"%> </label><br />
+    <span id="cidade">
+      <%if params[:estado_id] and params[:cidade_id]%>
+      <select name="usuario[cidade_id]" >
+        <option vallue=''>Escolha uma cidade</option>
+        <%Cidade.all(:select=> "id,nome", :conditions=>["estado_id = ?", params[:estado_id]], :order => "nome").each do |c|%>
+        <option value="<%= c.id%>" <%= c.id == params[:usuario][:cidade_id].to_i ? "selected='selected'" : '' %>>
+        <%=c.nome%>
+        </option>
+        <%end%>
+      </select>
+      <%else%>
+      <select class="text_select"><option>--Escolha um estado--</option></select>
+      <%end%>
+    </span>
+  </p>
+  <p>
+    <label>Categoria</label><br />
+    <select id="categoria" name="categoria_id">
+      <option value=""> --Categoria-- </option>
+      <%Categoria.all(:select => "id, descricao").each do |c|%>
+        <option value="<%= c.id %>"> <%=c.descricao%> </option>
+      <%end%>
+    </select>
+  </p>
+  <p>
+    <label>Subcategoria <%= image_tag "carregando.gif", :id => "carregando_subcategoria", :style => "display:none;width:10px;height:10px;"%> </label><br />
+    <span id="subcategoria">
+      <select class="text_select"><option>--Escolha uma categoria--</option></select>
+    <span>
+  </p>
+  <p>
+  
+    <label>Descrição</label><br />
+    <%= text_field_tag 'descricao' %>
+  </p>
+  <p>
+    <%= submit_tag "Buscar", :disable_with => "Aguarde..." %>
+  </p>
+  <% end %>
+<% end %>
+<div id="div_busca"></div>
+<%= observe_field "estado",:update => "cidade",:url => {:action => "mostrar_cidade"},:before => "Element.show('carregando_cidade');",:complete => "Element.hide('carregando_cidade');",:with => "estado_id", :on => "change"%>
+<%= observe_field "categoria",:update => "subcategoria",:url => {:action => "mostrar_subcategoria"},:before => "Element.show('carregando_subcategoria');",:complete => "Element.hide('carregando_subcategoria')",:with => "categoria_id", :on => "change"%>
