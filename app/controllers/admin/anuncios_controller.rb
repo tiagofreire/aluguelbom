@@ -1,6 +1,5 @@
 class Admin::AnunciosController < Admin::AdminController
   before_filter do |c|
-    B
     c.send(:check_authentication, 3)
   end
   uses_tiny_mce

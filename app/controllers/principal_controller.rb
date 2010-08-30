@@ -42,11 +42,11 @@ class PrincipalController < ApplicationController
     end
     anuncio = 'Anuncio.all('
     if joins != ''
-      anuncio << ":joins => joins, "  
+      anuncio << ":joins => '#{joins}', "  
     end
-    if conditions != ''
-      anuncio << " :conditions => conditions.sub('AND ','')," 
-    end
+    # if conditions != ''
+    #       anuncio << " :conditions => conditions.sub('AND ','')," 
+    #     end
     anuncio <<  ":order => 'anuncios.descricao')"
     anuncios = eval(anuncio)
     render :partial => 'busca', :locals =>{:anuncios => anuncios}
